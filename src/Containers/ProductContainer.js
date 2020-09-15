@@ -1,8 +1,10 @@
 import React from 'react';
+import Product from '../Components/Product'
 
-const ProductContainer = () => {
+const ProductContainer = (props) => {
+    let products = props.products.map((product)=> <Product key={product.id} product={product} />)
     return(
-        <h1>Product Container</h1>
+        products
     )
 }
 

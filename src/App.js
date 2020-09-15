@@ -6,7 +6,17 @@ import Home from './Containers/Home'
 import NavBar from './Components/NavBar/NavBar'
 import "./App.css"
 
+const  BASE_URL = "http://localhost:3000/"
 class App extends React.Component {
+  state = {
+    products: []
+  }
+
+  componentDidMount(){
+    fetch(BASE_URL + "products")
+    .then((response)=> response.json())
+    .then((products)=> this.setState({products: products}))
+  }
   render() {
     return (
       <Router>
@@ -16,7 +26,7 @@ class App extends React.Component {
           <Route
             path="/products"
             render={() => {
-              return <ProductContainer />
+              return <ProductContainer products={this.state.products} />
             }}
           />
           <Route
