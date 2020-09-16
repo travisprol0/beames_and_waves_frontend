@@ -6,11 +6,7 @@ import { FormControl } from "react-bootstrap"
 import { Button } from "react-bootstrap"
 
 class NavBar extends React.Component {
-  navBarFilter = (e) => {
-    let category = e.target.innerText
-    this.props.navBarFilter(category)
-  }
-
+  
   onMouseEnter = () => {
   }
 
@@ -35,14 +31,13 @@ class NavBar extends React.Component {
           >
             All Equipment
           </Nav.Link>
-          <Nav.Link href={'/products'}
+          <Nav.Link href={'/products/lighting'}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
-            onClick={this.navBarFilter}
           >
             Lighting Equipment
           </Nav.Link>
-          <Nav.Link 
+          <Nav.Link href={'/products/sound'}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onClick={this.navBarFilter}
