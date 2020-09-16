@@ -1,9 +1,9 @@
 import React from "react"
 import { BrowserRouter as Router, Route } from "react-router-dom"
-import ProductContainer from "./Containers/ProductContainer"
-import CartContainer from "./Containers/CartContainer"
 import LightingContainer from './Containers/LightingContainer'
-import SoundContainer from './Containers/SoundContainer'
+import CartContainer from "./Containers/CartContainer"
+
+import StoreContainer from './Containers/StoreContainer'
 import Home from "./Containers/Home"
 import NavBar from "./Components/NavBar/NavBar"
 import "./App.css"
@@ -17,34 +17,9 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <NavBar navBarFilter={this.navBarFilter} />
+          <StoreContainer />
           <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/products"
-            render={() => {
-              return (
-                <ProductContainer />
-              )
-            }}
-          />
-          <Route
-            exact
-            path="/products/lighting"
-            render={() => {
-              return (
-                <LightingContainer />
-              )
-            }}
-          />
-          <Route
-            exact
-            path="/products/sound"
-            render={() => {
-              return (
-                <SoundContainer />
-              )
-            }}
-          />
+          <Route exact path="/products/lighting" component={LightingContainer} />
           <Route
             path="/cart"
             render={() => {
