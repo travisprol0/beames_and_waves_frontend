@@ -54,7 +54,7 @@ class App extends React.Component {
             render={() => {
               return (
                 <ProductContainer
-                  products={this.state.filteredProducts}
+                  products={this.state.products}
                 />
               )
             }}

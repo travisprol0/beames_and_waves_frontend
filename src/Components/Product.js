@@ -11,7 +11,9 @@ const Product = (props) => {
       <Link to={`/products/${props.product.id}`}>
         <button type="button">View Item</button>
       </Link>
+      <Link to={`/products/${props.product.id}`}></Link>
         <button type="button">Add To Cart</button>
+
     </div>
   )
 }
