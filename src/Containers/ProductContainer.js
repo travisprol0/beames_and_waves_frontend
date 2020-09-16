@@ -20,7 +20,6 @@ class  ProductContainer extends React.Component {
           <Product
             key={product.id}
             product={product}
-            clickHandler={this.props.clickHandler}
           />
         ))
         return <div className="productContainer">{products}</div>
