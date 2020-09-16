@@ -12,11 +12,9 @@ class NavBar extends React.Component {
   }
 
   onMouseEnter = () => {
-    console.log("enter")
   }
 
   onMouseLeave = () => {
-    console.log("leave")
   }
 
   render() {
@@ -30,21 +28,21 @@ class NavBar extends React.Component {
         </Form>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link
+          <Nav.Link href={'/products'}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onClick={this.navBarFilter}
           >
             All Equipment
           </Nav.Link>
-          <Nav.Link
+          <Nav.Link 
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onClick={this.navBarFilter}
           >
             Lighting Equipment
           </Nav.Link>
-          <Nav.Link
+          <Nav.Link 
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onClick={this.navBarFilter}
