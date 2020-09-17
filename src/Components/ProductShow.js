@@ -14,6 +14,35 @@ class ProductShow extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault()
+    this.createCart()
+  }
+
+  createCart = () => {
+    let product_id = parseInt(this.state.product.id)
+    let object = { user_id: 1, product_id: product_id, sold: false }
+    //   console.log(product_id)
+    // fetch("http://localhost:3000/carts", {
+    //   method: "POST",
+    //   body: JSON.stringify(object),
+    //   headers: {
+    //     "Content-type": "application/json",
+    //   }
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json))
+    fetch("http://localhost:3000/carts", {
+      method: "POST",
+      body: JSON.stringify({
+        user_id: 1,
+        product_id: product_id,
+        sold: false,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
   }
 
   changeHandler = (e) => {
@@ -27,7 +56,11 @@ class ProductShow extends React.Component {
         <div className="productShow">
           <div className="topDiv">
             <div className="imageShowDiv">
-              <img className="imageShow" src={product.image} />
+              <img
+                className="imageShow"
+                src={product.image}
+                alt={product.title}
+              />
             </div>
             <div className="pricing">
               <h2>{product.title}</h2>
