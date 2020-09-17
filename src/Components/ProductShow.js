@@ -19,30 +19,17 @@ class ProductShow extends React.Component {
 
   createCart = () => {
     let product_id = parseInt(this.state.product.id)
-    let object = { user_id: 1, product_id: product_id, sold: false }
-    //   console.log(product_id)
-    // fetch("http://localhost:3000/carts", {
-    //   method: "POST",
-    //   body: JSON.stringify(object),
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   }
-    // })
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json))
+    let quantity = parseInt(this.state.quantityEntered)
+    let object = { user_id: 26, product_id: product_id,  quantity: quantity, sold: false }
+
     fetch("http://localhost:3000/carts", {
       method: "POST",
-      body: JSON.stringify({
-        user_id: 1,
-        product_id: product_id,
-        sold: false,
-      }),
       headers: {
         "Content-type": "application/json",
+        "Accept": "application/json"
       },
+      body: JSON.stringify(object)
     })
-      .then((response) => response.json())
-      .then((json) => console.log(json))
   }
 
   changeHandler = (e) => {
