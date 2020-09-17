@@ -4,7 +4,7 @@ import ProductContainer from "./Containers/ProductContainer"
 import CartContainer from "./Containers/CartContainer"
 import LightingContainer from "./Containers/LightingContainer"
 import SoundContainer from "./Containers/SoundContainer"
-import ProductShow from './Components/ProductShow'
+import ProductShow from "./Components/ProductShow"
 import Home from "./Containers/Home"
 import NavBar from "./Components/NavBar/NavBar"
 import "./App.css"
@@ -17,40 +17,11 @@ class App extends React.Component {
         <div className="App">
           <NavBar navBarFilter={this.navBarFilter} />
           <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/products"
-            render={() => {
-              return <ProductContainer />
-            }}
-          />
-          <Route
-            exact
-            path="/products/lighting"
-            render={() => {
-              return <LightingContainer />
-            }}
-          />
-          <Route
-            exact
-            path="/products/sound"
-            render={() => {
-              return <SoundContainer />
-            }}
-          />
-          <Route
-            exact
-            path="/products/:id"
-            render={() => {
-              return <ProductShow />
-            }}
-          />
-          <Route
-            path="/cart"
-            render={() => {
-              return <CartContainer />
-            }}
-          />
+          <Route exact path="/equipment" component={ProductContainer} />
+          <Route exact path="/equipment/lighting" component={LightingContainer} />
+          <Route exact path="/equipment/sound" component={SoundContainer} />
+          <Route path="/products/:id" component={ProductShow} />
+          <Route exact path="/cart" component={CartContainer} />
         </div>
       </Router>
     )

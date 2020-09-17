@@ -24,20 +24,20 @@ class NavBar extends React.Component {
         </Form>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href={'/products'}
+          <Nav.Link href={'/equipment'}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onClick={this.navBarFilter}
           >
             All Equipment
           </Nav.Link>
-          <Nav.Link href={'/products/lighting'}
+          <Nav.Link href={'/equipment/lighting'}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
           >
             Lighting Equipment
           </Nav.Link>
-          <Nav.Link href={'/products/sound'}
+          <Nav.Link href={'/equipment/sound'}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             onClick={this.navBarFilter}
