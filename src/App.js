@@ -11,12 +11,17 @@ import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 class App extends React.Component {
+
+state = {
+  test: "test"
+}
   render() {
     return (
       <Router>
         <div className="App">
           <NavBar navBarFilter={this.navBarFilter} />
-          <Route exact path="/" component={Home} />
+          <Route path="/" render={props =>(<Home {...props} prop={this.state}/>)}/>
+          {/* <Route exact path="/" component={Home} /> */}
           <Route exact path="/equipment" component={ProductContainer} />
           <Route exact path="/equipment/lighting" component={LightingContainer} />
           <Route exact path="/equipment/sound" component={SoundContainer} />
