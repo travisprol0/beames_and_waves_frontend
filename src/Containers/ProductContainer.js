@@ -1,29 +1,10 @@
 import React from "react"
 import Product from "../Components/Product"
 
-const BASE_URL = "http://localhost:3000/"
-class  ProductContainer extends React.Component {
-    state = {
-        products: [],
-      }
-    componentDidMount() {
-        fetch(BASE_URL + "products")
-          .then((response) => response.json())
-          .then((products) =>
-            this.setState({ products: products, filteredProducts: products })
-          )
-      }
 
-    render(){
-
-        let products = this.state.products.map((product) => (
-          <Product
-            key={product.id}
-            product={product}
-          />
-        ))
-        return <div className="productContainer">{products}</div>
-    }
+const ProductContainer =(props) => {
+  let products = props.products.map((product) => (<Product key={product.id} product={product} />))
+    return products
 }
 
 export default ProductContainer

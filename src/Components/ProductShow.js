@@ -1,15 +1,15 @@
 import React from "react"
 
 class ProductShow extends React.Component {
+
+
   state = {
     product: [],
     quantityEntered: 1,
   }
   componentDidMount() {
-    let url = this.props.match.url
-    fetch("http://localhost:3000" + url)
-      .then((response) => response.json())
-      .then((product) => this.setState({ product: product }))
+    let product = this.props.products.find((product) => product.id === parseInt(this.props.match.params.id))
+    this.setState({ product: product })
   }
 
   submitHandler = (e) => {

@@ -9,24 +9,31 @@ import Home from "./Containers/Home"
 import NavBar from "./Components/NavBar/NavBar"
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-
+const BASE_URL = "http://localhost:3000/"
 class App extends React.Component {
 
 state = {
-  test: "test"
+  products: []
+}
+
+componentDidMount() {
+  fetch(BASE_URL + "products")
+    .then((response) => response.json())
+    .then((products) =>
+      this.setState({ products: products })
+    )
 }
   render() {
     return (
       <Router>
         <div className="App">
           <NavBar navBarFilter={this.navBarFilter} />
-          <Route path="/" render={props =>(<Home {...props} prop={this.state}/>)}/>
-          {/* <Route exact path="/" component={Home} /> */}
-          <Route exact path="/equipment" component={ProductContainer} />
-          <Route exact path="/equipment/lighting" component={LightingContainer} />
-          <Route exact path="/equipment/sound" component={SoundContainer} />
-          <Route path="/products/:id" component={ProductShow} />
-          <Route exact path="/cart" component={CartContainer} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/equipment" render={props =>(<ProductContainer {...props} products={this.state.products}/>)}/>
+          <Route exact path="/equipment/lighting" render={props =>(<LightingContainer {...props} products={this.state.products}/>)}/>
+          <Route exact path="/equipment/sound" render={props =>(<SoundContainer {...props} products={this.state.products}/>)} />
+          <Route path="/products/:id" render={props =>(<ProductShow {...props} products={this.state.products}/>)} />
+          <Route exact path="/cart" render={props =>(<CartContainer {...props} products={this.state.products}/>)} />
         </div>
       </Router>
     )
