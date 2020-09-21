@@ -70,3 +70,13 @@
   margin: auto;
   float: right;
 }
+
+.cartCard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cartImage {
+  max-width: 100px;
+  max-height: 100px;
+}

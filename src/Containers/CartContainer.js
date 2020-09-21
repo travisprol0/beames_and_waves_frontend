@@ -3,7 +3,8 @@ import Cart from "../Components/Cart"
 
 class CartContainer extends React.Component {
   state = {
-    cart: []
+    cart: [],
+    total: 0,
   }
   componentDidMount() {
     fetch("http://localhost:3000/carts")
@@ -17,11 +18,23 @@ class CartContainer extends React.Component {
   }
 
   mapCart = () => {
-    return this.state.cart.map((cart) => <Cart key={cart.id} cart={cart} />)
+    return this.state.cart.map((cart) => (
+      <Cart key={cart.id} cart={cart} getTotal={this.getTotal} />
+    ))
+  }
+
+  getTotal = (price) => {
+    let old = parseInt(this.state.total)
+    this.setState({ total: old + parseInt(price) })
   }
 
   render() {
-    return this.mapCart()
+    return (
+      <div>
+        {this.mapCart()}
+        <h1>Total: ${this.state.total}</h1>
+      </div>
+    )
   }
 }
 
