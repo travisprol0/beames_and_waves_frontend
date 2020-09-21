@@ -86,6 +86,14 @@ class NavBar extends React.Component {
           >
             Sell Equipment
           </Nav.Link>
+          <Nav.Link
+            href={"/account"}
+            onMouseEnter={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
+            onClick={this.navBarFilter}
+          >
+            My Account
+          </Nav.Link>
         </Nav>
       </Navbar>
     )

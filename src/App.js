@@ -7,6 +7,7 @@ import SoundContainer from "./Containers/SoundContainer"
 import ProductShow from "./Components/ProductShow"
 import FormContainer from "./Containers/FormContainer"
 import SearchContainer from "./Containers/SearchContainer"
+import AccountContainer from "./Containers/AccountContainer"
 import Home from "./Containers/Home"
 import NavBar from "./Components/NavBar/NavBar"
 import "./App.css"
@@ -73,8 +74,19 @@ class App extends React.Component {
               />
             )}
           />
-          <Route exact path="/cart" render={(props) => (
-              <CartContainer {...props} products={this.state.products}/> )} />
+          <Route
+            path="/account"
+            render={(props) => (
+              <AccountContainer {...props} products={this.state.products} />
+            )}
+          />
+          <Route
+            exact
+            path="/cart"
+            render={(props) => (
+              <CartContainer {...props} products={this.state.products} />
+            )}
+          />
           <Route exact path="/list-item" component={FormContainer} />
         </div>
       </Router>

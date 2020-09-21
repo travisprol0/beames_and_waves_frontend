@@ -11,6 +11,7 @@ class Form extends React.Component {
     quantity: "",
     category: "",
     image: "",
+    user_id: 26,
   }
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
@@ -29,21 +30,22 @@ class Form extends React.Component {
       quantity: "",
       category: "",
       image: "",
+      user_id: 26,
     })
     this.postItem()
   }
 
   postItem = () => {
     fetch("http://localhost:3000/products", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(this.state)
-      })
-    }
-  
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(this.state),
+    })
+  }
+
   render() {
     return (
       <>
@@ -77,13 +79,10 @@ class Form extends React.Component {
             onChange={this.changeHandler}
             placeholder="description"
           />
-          <input
-            type="text"
-            name="category"
-            value={this.state.category}
-            onChange={this.changeHandler}
-            placeholder="category"
-          />
+          <select name="category">
+            <option value="lighting">Lighting</option>
+            <option value="sound">Sound</option>
+          </select>
           <input
             type="text"
             name="image"

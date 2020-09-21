@@ -1,6 +1,6 @@
 import React from "react"
 import Cart from "../Components/Cart"
-import {PayPalButton} from 'react-paypal-button-v2'
+import { PayPalButton } from "react-paypal-button-v2"
 
 class CartContainer extends React.Component {
   state = {
@@ -8,13 +8,17 @@ class CartContainer extends React.Component {
     total: 0,
   }
   componentDidMount() {
+    this.fetchCarts()
+  }
+
+  fetchCarts = () => {
     fetch("http://localhost:3000/carts")
       .then((response) => response.json())
       .then((carts) => this.filterCart(carts))
   }
 
   filterCart = (carts) => {
-    let filteredUsers = carts.filter((cart) => cart.user_id === 26 )
+    let filteredUsers = carts.filter((cart) => cart.user_id === 26)
     let filteredCart = filteredUsers.filter((cart) => !cart.sold)
     this.setState({ cart: filteredCart })
   }
@@ -30,25 +34,54 @@ class CartContainer extends React.Component {
     this.setState({ total: old + parseInt(price) })
   }
 
+  fetchCartsSold = () => {
+    this.state.cart.forEach((item) =>
+      fetch(`http://localhost:3000/carts/${item.id}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          sold: true,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+    )
+    this.fetchProductQuantity()
+  }
+  
+  fetchProductQuantity = () => {
+    this.state.cart.forEach((item) =>
+      fetch(`http://localhost:3000/products/${item.product_id}`, {
+        method: "PATCH", 
+        body: JSON.stringify({quantity: item.quantityAvailable - item.quantity}),
+        headers: {
+        "Content-type": "application/json"
+        }
+      })    
+    )
+    this.fetchCarts()
+  }
+
   render() {
     return (
       <div>
         {this.mapCart()}
         <h1>Total: ${this.state.total}</h1>
         <PayPalButton
-        amount={this.state.total}
-        
-        onSuccess={(details, data) => {
-          alert("Transaction completed by " + details.payer.name.given_name);
-          // OPTIONAL: Call your server to save the transaction
-          // return fetch("/paypal-transaction-complete", {
-          //   method: "post",
-          //   body: JSON.stringify({
-          //     orderID: data.orderID
-          //   })
-          // });
-        }}
-      />
+          amount={this.state.total}
+          onSuccess={(details, data) => {
+            alert("Transaction completed by " + details.payer.name.given_name)
+
+            this.fetchCartsSold()
+            // OPTIONAL: Call your server to save the transaction
+            // return fetch("/paypal-transaction-complete", {
+            //   method: "post",
+            //   body: JSON.stringify({
+            //     orderID: data.orderID
+            //   })
+            // });
+          }}
+        />
       </div>
     )
   }

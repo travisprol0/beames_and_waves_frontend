@@ -20,7 +20,9 @@ class ProductShow extends React.Component {
   createCart = () => {
     let product_id = parseInt(this.state.product.id)
     let quantity = parseInt(this.state.quantityEntered)
-    let object = { user_id: 26, product_id: product_id,  quantity: quantity, sold: false}
+    let quantityAvailable = parseInt(this.state.product.quantity)
+    console.log(quantityAvailable)
+    let object = { user_id: 26, product_id: product_id,  quantity: quantity, sold: false, quantityAvailable: quantityAvailable}
 
     fetch("http://localhost:3000/carts", {
       method: "POST",
