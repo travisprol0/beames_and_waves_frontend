@@ -1,5 +1,6 @@
 import React from "react"
 import Cart from "../Components/Cart"
+import {PayPalButton} from 'react-paypal-button-v2'
 
 class CartContainer extends React.Component {
   state = {
@@ -13,7 +14,8 @@ class CartContainer extends React.Component {
   }
 
   filterCart = (carts) => {
-    let filteredCart = carts.filter((cart) => cart.user_id === 26)
+    let filteredUsers = carts.filter((cart) => cart.user_id === 26 )
+    let filteredCart = filteredUsers.filter((cart) => !cart.sold)
     this.setState({ cart: filteredCart })
   }
 
@@ -33,6 +35,20 @@ class CartContainer extends React.Component {
       <div>
         {this.mapCart()}
         <h1>Total: ${this.state.total}</h1>
+        <PayPalButton
+        amount={this.state.total}
+        
+        onSuccess={(details, data) => {
+          alert("Transaction completed by " + details.payer.name.given_name);
+          // OPTIONAL: Call your server to save the transaction
+          // return fetch("/paypal-transaction-complete", {
+          //   method: "post",
+          //   body: JSON.stringify({
+          //     orderID: data.orderID
+          //   })
+          // });
+        }}
+      />
       </div>
     )
   }

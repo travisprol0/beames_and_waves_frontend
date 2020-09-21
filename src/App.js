@@ -73,7 +73,8 @@ class App extends React.Component {
               />
             )}
           />
-          <Route exact path="/cart" component={CartContainer} />
+          <Route exact path="/cart" render={(props) => (
+              <CartContainer {...props} products={this.state.products}/> )} />
           <Route exact path="/list-item" component={FormContainer} />
         </div>
       </Router>
