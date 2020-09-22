@@ -17,6 +17,7 @@ class App extends React.Component {
   state = {
     products: [],
     filteredProducts: [],
+    myProducts: [],
   }
 
   searchBarHandler = (searchTerm) => {
@@ -30,6 +31,13 @@ class App extends React.Component {
     fetch(BASE_URL + "products")
       .then((response) => response.json())
       .then((products) => this.setState({ products: products }))
+  }
+
+  getMyProducts = () => {
+    let myProducts = this.state.products.filter(
+      (product) => product.user_id === 1
+    )
+    this.setState({ myProducts: myProducts })
   }
 
   render() {
@@ -74,6 +82,7 @@ class App extends React.Component {
               />
             )}
           />
+
           <Route
             path="/account"
             render={(props) => (

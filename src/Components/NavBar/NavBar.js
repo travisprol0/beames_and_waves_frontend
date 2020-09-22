@@ -27,7 +27,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/">Shitty Ass Store</Navbar.Brand>
+        <Navbar.Brand href="/">Used Theatre Equipment</Navbar.Brand>
         <Form inline>
           <FormControl
             type="text"
