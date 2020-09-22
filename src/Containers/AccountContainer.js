@@ -2,7 +2,7 @@ import React from "react"
 import ItemsSelling from "../Components/ItemsSelling"
 
 const AccountContainer = (props) => {
-  let itemsSelling = props.products.filter((product) => product.user_id === 26)
+  let itemsSelling = props.products.filter((product) => product.user_id === 1)
   let products = itemsSelling.map((product) => (
     <ItemsSelling key={product.id} product={product} />
   ))
@@ -23,12 +23,12 @@ const AccountContainer = (props) => {
   //    this
   // }
 
-  return (
-    <div>
-      <h1>Items I'm Selling</h1>
-      {/* {this.filterProducts()} */}
-    </div>
-  )
+  // return (
+  //   <div>
+  //     <h1>Items I'm Selling</h1>
+  //     {/* {this.filterProducts()} */}
+  //   </div>
+  // )
 }
 
 export default AccountContainer

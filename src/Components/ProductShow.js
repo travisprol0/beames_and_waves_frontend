@@ -22,7 +22,7 @@ class ProductShow extends React.Component {
     let quantity = parseInt(this.state.quantityEntered)
     let quantityAvailable = parseInt(this.state.product.quantity)
     console.log(quantityAvailable)
-    let object = { user_id: 26, product_id: product_id,  quantity: quantity, sold: false, quantityAvailable: quantityAvailable}
+    let object = { user_id: 1, product_id: product_id,  quantity: quantity, sold: false, quantityAvailable: quantityAvailable}
 
     fetch("http://localhost:3000/carts", {
       method: "POST",

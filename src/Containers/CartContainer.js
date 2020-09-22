@@ -18,7 +18,7 @@ class CartContainer extends React.Component {
   }
 
   filterCart = (carts) => {
-    let filteredUsers = carts.filter((cart) => cart.user_id === 26)
+    let filteredUsers = carts.filter((cart) => cart.user_id === 1)
     let filteredCart = filteredUsers.filter((cart) => !cart.sold)
     this.setState({ cart: filteredCart })
   }

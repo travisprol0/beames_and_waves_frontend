@@ -9,9 +9,9 @@ class Form extends React.Component {
     description: "",
     price: "",
     quantity: "",
-    category: "",
+    category: "lighting",
     image: "",
-    user_id: 26,
+    user_id: 1,
   }
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
@@ -28,9 +28,9 @@ class Form extends React.Component {
       description: "",
       price: "",
       quantity: "",
-      category: "",
+      category: "lighting",
       image: "",
-      user_id: 26,
+      user_id: 1,
     })
     this.postItem()
   }
@@ -79,7 +79,11 @@ class Form extends React.Component {
             onChange={this.changeHandler}
             placeholder="description"
           />
-          <select name="category">
+          <select
+            name="category"
+            value={this.state.image}
+            onChange={this.changeHandler}
+          >
             <option value="lighting">Lighting</option>
             <option value="sound">Sound</option>
           </select>
