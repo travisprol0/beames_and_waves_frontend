@@ -17,7 +17,17 @@ class App extends React.Component {
   state = {
     products: [],
     filteredProducts: [],
-    myProducts: [],
+    carts: []
+  }
+
+  componentDidMount() {
+    fetch(BASE_URL + "products")
+      .then((response) => response.json())
+      .then((products) => this.setState({ products: products }))
+
+      fetch(BASE_URL + "carts")
+      .then((response) => response.json())
+      .then((carts) => this.setState({ carts: carts }))
   }
 
   searchBarHandler = (searchTerm) => {
@@ -27,17 +37,10 @@ class App extends React.Component {
     this.setState({ filteredProducts: filteredProducts })
   }
 
-  componentDidMount() {
-    fetch(BASE_URL + "products")
-      .then((response) => response.json())
-      .then((products) => this.setState({ products: products }))
-  }
 
-  getMyProducts = () => {
-    let myProducts = this.state.products.filter(
-      (product) => product.user_id === 1
-    )
-    this.setState({ myProducts: myProducts })
+
+  getCarts = (carts) => {
+    return carts
   }
 
   render() {
@@ -86,14 +89,22 @@ class App extends React.Component {
           <Route
             path="/account"
             render={(props) => (
-              <AccountContainer {...props} products={this.state.products} />
+              <AccountContainer
+                {...props}
+                products={this.state.products}
+                carts={this.state.carts}
+              />
             )}
           />
           <Route
             exact
             path="/cart"
             render={(props) => (
-              <CartContainer {...props} products={this.state.products} />
+              <CartContainer
+                {...props}
+                products={this.state.products}
+                getCarts={this.getCarts}
+              />
             )}
           />
           <Route exact path="/list-item" component={FormContainer} />

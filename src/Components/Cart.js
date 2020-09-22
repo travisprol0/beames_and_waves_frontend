@@ -4,6 +4,7 @@ class Cart extends React.Component {
   state = {
     product: [],
     price: 0,
+    deleted: false
   }
 
   componentDidMount() {
@@ -24,16 +25,32 @@ class Cart extends React.Component {
     this.props.getTotal(this.state.price)
   }
 
+  clickHandler = () => {
+    const deleted = this.state.deleted
+    this.setState({ deleted: !deleted, price: 0 })
+    console.log(this.state.product.price)
+    this.props.updateTotal(this.state.product.price * this.props.cart.quantity)
+    this.deleteCart()
+  }
+
+  deleteCart = (e) => {
+    let id = this.props.cart.id
+    fetch(`http://localhost:3000/carts/${id}`, {
+      method: "DELETE",
+    })
+  }
+
   render() {
     let product = this.state.product
     return (
-      <div className="cartCard">
+      <div className={this.state.deleted ? "deleted" : "visible"}>
         <img className="cartImage" src={product.image} alt={product.title} />
         <h3>{product.title}</h3>
         <h3>Quantity: {this.props.cart.quantity}</h3>
         <h3 className="cartPrice">
           ${product.price * this.props.cart.quantity}
         </h3>
+        <button onClick={this.clickHandler}>Delete</button>
       </div>
     )
   }

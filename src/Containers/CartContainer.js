@@ -18,6 +18,7 @@ class CartContainer extends React.Component {
   }
 
   filterCart = (carts) => {
+    this.props.getCarts(carts)
     let filteredUsers = carts.filter((cart) => cart.user_id === 1)
     let filteredCart = filteredUsers.filter((cart) => !cart.sold)
     this.setState({ cart: filteredCart })
@@ -25,13 +26,18 @@ class CartContainer extends React.Component {
 
   mapCart = () => {
     return this.state.cart.map((cart) => (
-      <Cart key={cart.id} cart={cart} getTotal={this.getTotal} />
+      <Cart key={cart.id} cart={cart} getTotal={this.getTotal} updateTotal={this.updateTotal} />
     ))
   }
 
   getTotal = (price) => {
     let old = parseInt(this.state.total)
     this.setState({ total: old + parseInt(price) })
+  }
+
+  updateTotal = (price) => {
+    let itemPrice = parseInt(price)
+    this.setState({total: this.state.total - itemPrice})
   }
 
   fetchCartsSold = () => {
