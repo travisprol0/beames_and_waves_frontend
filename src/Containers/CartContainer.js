@@ -59,7 +59,8 @@ class CartContainer extends React.Component {
         }
       })    
     )
-    this.fetchCarts()
+    this.setState({cart: [], total: 0})
+    this.mapCart()
   }
 
   render() {
@@ -71,8 +72,9 @@ class CartContainer extends React.Component {
           amount={this.state.total}
           onSuccess={(details, data) => {
             alert("Transaction completed by " + details.payer.name.given_name)
-
+            
             this.fetchCartsSold()
+            
             // OPTIONAL: Call your server to save the transaction
             // return fetch("/paypal-transaction-complete", {
             //   method: "post",
