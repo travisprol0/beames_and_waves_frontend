@@ -48,7 +48,9 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <NavBar searchBarHandler={this.searchBarHandler} />
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={(props) => (
+              <ProductContainer {...props} products={this.state.products} />
+            )} />
           <Route
             exact
             path="/equipment"

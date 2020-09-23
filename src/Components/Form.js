@@ -81,7 +81,7 @@ class Form extends React.Component {
           />
           <select
             name="category"
-            value={this.state.image}
+            value={this.state.category}
             onChange={this.changeHandler}
           >
             <option value="lighting">Lighting</option>
