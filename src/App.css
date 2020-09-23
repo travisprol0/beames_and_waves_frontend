@@ -1,7 +1,7 @@
-.productContainer {
+/* .productContainer {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .productCard {
   border-style: solid;
@@ -94,4 +94,32 @@
 
 .deleted {
   display: none;
+}
+
+.filter-span {
+  float: left;
+  clear: left;
+}
+
+/* .product-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+} */
+.product-container {
+  /* background-color: black;  */
+   /* max-height: 800px; */
+  max-width: 1300px;
+  /* border-style: solid;
+  border-width: 2px; */
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: auto; */
+  float: right;
+}
+
+.filter-container {
+  margin-top: 50px;
+  margin-left: 25px;
+  float: left;
 }

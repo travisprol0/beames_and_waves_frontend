@@ -7,11 +7,13 @@ const ProductContainer = (props) => {
     <Product key={product.id} product={product} />
   ))
   return (
-    <div>
-      <Filter products={props.products} />
-      {products}
+    <div className="product-wrapper">
+      <div className="product-container">{products}</div>
+      <div className="filter-container">
+        <Filter products={props.products} />
+      </div>
     </div>
-    )
+  )
 }
 
 export default ProductContainer

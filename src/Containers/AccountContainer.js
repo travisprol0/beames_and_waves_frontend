@@ -16,8 +16,6 @@ const AccountContainer = (props) => {
     <ItemsBought key={cart.id} cart={cart} products={props.products} />
   ))
 
-  console.log(boughtCards)
-
   return (
     <div>
       <h1>Items I'm Selling</h1>
