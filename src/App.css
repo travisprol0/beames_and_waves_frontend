@@ -197,6 +197,9 @@
   display: none;
 }
 
+.filter {
+  margin-top: 50px;
+}
 .filter-span {
   float: left;
   clear: left;
@@ -204,7 +207,7 @@
 
 .filter-container {
   margin-top: 50px;
-  margin-left: 25px;
+  margin-left: 10px;
   float: left;
 }
 

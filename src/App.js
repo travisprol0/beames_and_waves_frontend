@@ -18,7 +18,7 @@ class App extends React.Component {
     products: [],
     filteredProducts: [],
     priceFiltered: [],
-    carts: []
+    carts: [],
   }
 
   componentDidMount() {
@@ -26,23 +26,26 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((products) => this.setState({ products: products }))
 
-      fetch(BASE_URL + "carts")
+    fetch(BASE_URL + "carts")
       .then((response) => response.json())
       .then((carts) => this.setState({ carts: carts }))
   }
 
   searchBarHandler = (searchTerm) => {
-    let filteredProducts = this.state.products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm)
+    let filteredProducts = this.state.products.filter(
+      (product) =>
+        product.title.toLowerCase().includes(searchTerm) ||
+        product.brand.toLowerCase().includes(searchTerm)
     )
     this.setState({ filteredProducts: filteredProducts })
   }
 
   priceFilter = (e) => {
-    console.log (e.target.value)
+    if (e.target.value === "Less Than $50") {
+      let filteredProducts = this.state.products.filter((product) => product.price < 50)
+      filteredProducts.forEach((product) => this.setState({filteredProducts: [...this.state.filteredProducts, product]}))
+    }
   }
-
-
 
   getCarts = (carts) => {
     return carts
@@ -53,28 +56,48 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <NavBar searchBarHandler={this.searchBarHandler} />
-          <Route exact path="/" render={(props) => (
-              <ProductContainer {...props} products={this.state.products} clickHandler={this.priceFilter} />
-            )} />
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <ProductContainer
+                {...props}
+                products={this.state.products}
+                clickHandler={this.priceFilter}
+              />
+            )}
+          />
           <Route
             exact
             path="/equipment"
             render={(props) => (
-              <ProductContainer {...props} products={this.state.products} clickHandler={this.priceFilter}/>
+              <ProductContainer
+                {...props}
+                products={this.state.products}
+                clickHandler={this.priceFilter}
+              />
             )}
           />
           <Route
             exact
             path="/equipment/lighting"
             render={(props) => (
-              <LightingContainer {...props} products={this.state.products} clickHandler={this.priceFilter}/>
+              <LightingContainer
+                {...props}
+                products={this.state.products}
+                clickHandler={this.priceFilter}
+              />
             )}
           />
           <Route
             exact
             path="/equipment/sound"
             render={(props) => (
-              <SoundContainer {...props} products={this.state.products} clickHandler={this.priceFilter}/>
+              <SoundContainer
+                {...props}
+                products={this.state.products}
+                clickHandler={this.priceFilter}
+              />
             )}
           />
           <Route
