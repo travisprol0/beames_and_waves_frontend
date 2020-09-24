@@ -40,7 +40,7 @@ class NavBar extends React.Component {
 
           <Link to="/search">
             <Button
-              variant="outline-success"
+              variant="outline-primary"
               onClick={this.searchSubmitHandler}
             >
               Search
@@ -73,11 +73,6 @@ class NavBar extends React.Component {
             Sound Equipment
           </Nav.Link>
 
-          <Nav.Link href="/cart">
-            <div className="cart-image">
-              <img src="../../images/cart.png" alt="cart" />
-            </div>
-          </Nav.Link>
           <Nav.Link
             href={"/list-item"}
             onMouseEnter={this.onMouseEnter}
@@ -85,6 +80,9 @@ class NavBar extends React.Component {
             onClick={this.navBarFilter}
           >
             Sell Equipment
+          </Nav.Link>
+          <Nav.Link href="/cart">
+            My Cart           
           </Nav.Link>
           <Nav.Link
             href={"/account"}

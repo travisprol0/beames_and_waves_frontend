@@ -51,14 +51,19 @@ class Form extends React.Component {
       <>
         <h1>List an Item</h1>
         <form onSubmit={this.submitHandler}>
+          <span className="input">
+          Title:
           <input
+          
             type="text"
             name="title"
             value={this.state.title}
             onChange={this.changeHandler}
             placeholder="title"
           />
+          </span>
           <input
+          className="input"
             type="text"
             name="brand"
             value={this.state.brand}
@@ -66,6 +71,7 @@ class Form extends React.Component {
             placeholder="brand"
           />
           <input
+          className="input"
             type="text"
             name="model"
             value={this.state.model}
@@ -73,6 +79,7 @@ class Form extends React.Component {
             placeholder="model"
           />
           <input
+          className="input"
             type="text"
             name="description"
             value={this.state.description}
@@ -80,6 +87,7 @@ class Form extends React.Component {
             placeholder="description"
           />
           <select
+          className="input"
             name="category"
             value={this.state.category}
             onChange={this.changeHandler}
@@ -88,6 +96,7 @@ class Form extends React.Component {
             <option value="sound">Sound</option>
           </select>
           <input
+          className="input"
             type="text"
             name="image"
             value={this.state.image}
@@ -95,6 +104,7 @@ class Form extends React.Component {
             placeholder="image"
           />
           <input
+          className="input"
             type="number"
             name="sku"
             value={this.state.sku}
@@ -102,6 +112,7 @@ class Form extends React.Component {
             placeholder="sku"
           />
           <input
+          className="input"
             type="number"
             name="price"
             value={this.state.price}
@@ -109,13 +120,14 @@ class Form extends React.Component {
             placeholder="price"
           />
           <input
+          className="input"
             type="number"
             name="quantity"
             value={this.state.quantity}
             onChange={this.changeHandler}
             placeholder="quantity"
           />
-          <input type="submit" value="list-item" />
+          <input className="input" type="submit" value="list-item" />
         </form>
       </>
     )

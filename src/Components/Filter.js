@@ -13,6 +13,7 @@ const Filter = (props) => {
         <form className="filter-form">
           <span className="filter-span">
             <input
+            className="checkbox"
               type="checkbox"
               value="Less Than $50"
               onClick={props.clickHandler}
@@ -21,6 +22,7 @@ const Filter = (props) => {
           </span>
           <span className="filter-span">
             <input
+            className="checkbox"
               type="checkbox"
               value="$50 to $100"
               onClick={props.clickHandler}
@@ -29,6 +31,7 @@ const Filter = (props) => {
           </span>
           <span className="filter-span">
             <input
+            className="checkbox"
               type="checkbox"
               value="$100 to $250"
               onClick={props.clickHandler}
@@ -37,6 +40,7 @@ const Filter = (props) => {
           </span>
           <span className="filter-span">
             <input
+            className="checkbox"
               type="checkbox"
               value="$250 to $500"
               onClick={props.clickHandler}
@@ -45,6 +49,7 @@ const Filter = (props) => {
           </span>
           <span className="filter-span">
             <input
+            className="checkbox"
               type="checkbox"
               value="$500 to $1000"
               onClick={props.clickHandler}
@@ -53,6 +58,7 @@ const Filter = (props) => {
           </span>
           <span className="filter-span">
             <input
+            className="checkbox"
               type="checkbox"
               value="$1000 to $2000"
               onClick={props.clickHandler}
@@ -60,7 +66,7 @@ const Filter = (props) => {
             $1000 to $2000
           </span>
           <span className="filter-span">
-            <input type="checkbox" value="$2000+" 
+            <input className="checkbox" type="checkbox" value="$2000+" 
             onClick={props.clickHandler} 
             />
             $2000+

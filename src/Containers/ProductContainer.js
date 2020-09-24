@@ -12,7 +12,7 @@ const ProductContainer = (props) => {
     <div className="product-wrapper">
       <div className="product-container">{products}</div>
       <div className="filter-container">
-        <Filter products={productBrands} clickHandler={props.clickHandler} />
+        <Filter clickHandler={props.clickHandler} />
       </div>
     </div>
   )
