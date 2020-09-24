@@ -2,9 +2,6 @@ import React from "react"
 // import BrandFilter from '../Components/BrandFilter'
 
 class Filter extends React.Component {
-  // const whatever = props.products.forEach((brand) =>  <BrandFilter brand={brand}/>)
-  //
-  // console.log(props.products)
 
   categorySort = (e) => {
     this.props.categorySort(e.target.value)
@@ -49,7 +46,7 @@ render() {
           <option value="descending">Name Descending</option>
         </select>
       </div>
-      {/* <div className="filter">
+      <div className="filter">
         <h5>Filter By Price</h5>
         <form className="filter-form">
           <span className="filter-span">
@@ -117,12 +114,12 @@ render() {
           </span>
         </form>
         <br></br>
-        <h5>Filter By Brand</h5>
+        {/* <h5>Filter By Brand</h5>
         <form className="brand-filter-form">
             {whatever}
-        </form>
-      </div> */}
-      <button onClick={this.props.clearFilters}>Clear Filters</button>
+        </form> */}
+      </div>
+      <button className="clear-filter-button" onClick={this.props.clearFilters}>Clear Filters</button>
     </>
   )
 }
