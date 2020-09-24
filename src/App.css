@@ -19,7 +19,7 @@
   display: block;
   box-shadow: 3px 3px 10px grey;
   width: 250px;
-  height: 320px;
+  height: 350px;
   text-align: center;
   margin: 25px;
   float: left;
@@ -46,14 +46,11 @@
   width: 225px;
   font-weight: bold;
   font-size: 20px;
-  font-family: "museo-sans","Helvetica Neue",Helvetica;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
 }
 
-.card-quantity-div {
-  /* margin-top: 1px; */
-}
 .card-quantity {
-  font-family: "museo-sans","Helvetica Neue",Helvetica;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
 }
 
 .card-price {
@@ -63,13 +60,13 @@
   float: left;
   margin-left: 20px;
   margin-top: 1px;
-  font-family: "museo-sans","Helvetica Neue",Helvetica;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
 }
 
 .view-item-button {
-  font-family: garamond;
   float: right;
   margin-right: 25px;
+  margin-top: 1px;
   box-shadow: inset 0px 1px 0px 0px #97c4fe;
   background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
   background-color: #3d94f6;
@@ -78,7 +75,7 @@
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
-  font-family: "museo-sans","Helvetica Neue",Helvetica;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
   font-size: 15px;
   font-weight: bold;
   padding: 6px 24px;
@@ -94,52 +91,87 @@
   top: 1px;
 }
 
-/* .topDiv {
-  margin: auto;
-  width: 800px;
-  height: 400px;
-  border-style: solid;
-  border-width: 2px;
-  margin-top: 50px;
-}
-
-.imageShow {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-.imageShowDiv {
-  max-width: 300px;
+.left-div {
   float: left;
-  margin-top: 50px;
-  margin-left: 50px;
-}
-
-.pricing {
-  float: right;
+  /* width: 500px; */
+  margin-left: 75px;
   margin-top: 100px;
-  margin-right: 25px;
 }
 
-.bottomDiv {
-  margin: auto;
-  border-style: solid;
-  border-width: 2px;
-  width: 1200px;
-  height: 200px;
+.image-show {
+  max-width: 800px;
+  max-height: 800px;
+}
+
+.right-div {
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  width: 750px;
+  margin-right: 50px;
   margin-top: 50px;
+  float: right;
+}
+
+.card-quantity-div{
+  margin-top: 30px;
+}
+
+.price {
+  font-size: 5px;
+  float: left;
+}
+
+.add-to-cart {
+  float: right;
+  margin-right: 300px;
+  margin-top: 10px;
+}
+
+.add-to-cart-button {
+  margin-left: 10px;
+  float: right;
+  margin-right: 25px;
+  box-shadow: inset 0px 1px 0px 0px #97c4fe;
+  background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+  background-color: #3d94f6;
+  border-radius: 6px;
+  border: 1px solid #337fed;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+}
+.add-to-cart-button:hover {
+  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color: #1e62d0;
+}
+.add-to-cart-button:active {
+  position: relative;
+  top: 1px;
+}
+
+.quantity-available {
+  margin-top: 5px;
+  float: left;
+}
+
+.bottom-div {
+  margin-top: 100px;
 }
 
 .specs {
-  position: absolute;
+  margin-top: 10px;
   float: left;
 }
 
 .description {
-  width: 800px;
-  margin: auto;
   float: right;
-} */
+  width: 450px;
+}
 
 .cartCard {
   display: flex;
@@ -169,9 +201,6 @@
   float: left;
   clear: left;
 }
-
-
-
 
 .filter-container {
   margin-top: 50px;
