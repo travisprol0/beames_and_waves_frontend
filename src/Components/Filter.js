@@ -1,9 +1,9 @@
 import React from "react"
-import BrandFilter from '../Components/BrandFilter'
+// import BrandFilter from '../Components/BrandFilter'
 
 const Filter = (props) => {
 
-    const whatever = props.products.forEach((brand) =>  <BrandFilter brand={brand}/>)
+    // const whatever = props.products.forEach((brand) =>  <BrandFilter brand={brand}/>)
     // 
     // console.log(props.products)
     

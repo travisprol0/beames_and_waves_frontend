@@ -7,6 +7,6 @@ const BrandFilter = (props) => {
 export default BrandFilter
 
 
-{/* <span className="filter-span"><input type="checkbox" value={props.brand} onClick={props.clickHandler}/>
+/* <span className="filter-span"><input type="checkbox" value={props.brand} onClick={props.clickHandler}/>
     {props.brand}
-  </span> */}
+  </span> */
