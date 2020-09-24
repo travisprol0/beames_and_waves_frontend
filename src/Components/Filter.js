@@ -3,13 +3,9 @@ import BrandFilter from '../Components/BrandFilter'
 
 const Filter = (props) => {
 
-
-
-  
-    const allProductBrands = props.products.map((product) => product.brand)
-    const productBrands = [...new Set(allProductBrands)]
-    const whatever = allProductBrands.forEach((brand) => <BrandFilter brand={brand} />)
-    console.log(allProductBrands)
+    const whatever = props.products.forEach((brand) =>  <BrandFilter brand={brand}/>)
+    // 
+    // console.log(props.products)
     
     return (
       <div>
@@ -19,7 +15,7 @@ const Filter = (props) => {
             <input
               type="checkbox"
               value="Less Than $50"
-            //   onClick={this.clickHandler}
+              onClick={props.clickHandler}
             />{" "}
             Less Than $50
           </span>
@@ -27,7 +23,7 @@ const Filter = (props) => {
             <input
               type="checkbox"
               value="$50 to $100"
-            //   onClick={this.clickHandler}
+              onClick={props.clickHandler}
             />
             $50 to $100
           </span>
@@ -35,7 +31,7 @@ const Filter = (props) => {
             <input
               type="checkbox"
               value="$100 to $250"
-            //   onClick={this.clickHandler}
+              onClick={props.clickHandler}
             />
             $100 to $250
           </span>
@@ -43,7 +39,7 @@ const Filter = (props) => {
             <input
               type="checkbox"
               value="$250 to $500"
-            //   onClick={this.clickHandler}
+              onClick={props.clickHandler}
             />
             $250 to $500
           </span>
@@ -51,7 +47,7 @@ const Filter = (props) => {
             <input
               type="checkbox"
               value="$500 to $1000"
-            //   onClick={this.clickHandler}
+              onClick={props.clickHandler}
             />
             $500 to $1000
           </span>
@@ -59,22 +55,22 @@ const Filter = (props) => {
             <input
               type="checkbox"
               value="$1000 to $2000"
-            //   onClick={this.clickHandler}
+              onClick={props.clickHandler}
             />
             $1000 to $2000
           </span>
           <span className="filter-span">
             <input type="checkbox" value="$2000+" 
-            // onClick={this.clickHandler} 
+            onClick={props.clickHandler} 
             />
             $2000+
           </span>
         </form>
         <br></br>
-        <h5>Filter By Brand</h5>
+        {/* <h5>Filter By Brand</h5>
         <form className="brand-filter-form">
             {whatever}
-        </form>
+        </form> */}
       </div>
     )
   

@@ -17,6 +17,7 @@ class App extends React.Component {
   state = {
     products: [],
     filteredProducts: [],
+    priceFiltered: [],
     carts: []
   }
 
@@ -37,6 +38,10 @@ class App extends React.Component {
     this.setState({ filteredProducts: filteredProducts })
   }
 
+  priceFilter = (e) => {
+    console.log (e.target.value)
+  }
+
 
 
   getCarts = (carts) => {
@@ -49,27 +54,27 @@ class App extends React.Component {
         <div className="App">
           <NavBar searchBarHandler={this.searchBarHandler} />
           <Route exact path="/" render={(props) => (
-              <ProductContainer {...props} products={this.state.products} />
+              <ProductContainer {...props} products={this.state.products} clickHandler={this.priceFilter} />
             )} />
           <Route
             exact
             path="/equipment"
             render={(props) => (
-              <ProductContainer {...props} products={this.state.products} />
+              <ProductContainer {...props} products={this.state.products} clickHandler={this.priceFilter}/>
             )}
           />
           <Route
             exact
             path="/equipment/lighting"
             render={(props) => (
-              <LightingContainer {...props} products={this.state.products} />
+              <LightingContainer {...props} products={this.state.products} clickHandler={this.priceFilter}/>
             )}
           />
           <Route
             exact
             path="/equipment/sound"
             render={(props) => (
-              <SoundContainer {...props} products={this.state.products} />
+              <SoundContainer {...props} products={this.state.products} clickHandler={this.priceFilter}/>
             )}
           />
           <Route
