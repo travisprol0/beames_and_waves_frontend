@@ -84,7 +84,7 @@ class ProductShow extends React.Component {
                       ></input>
 
                       <input
-                        class="add-to-cart-button"
+                        className="add-to-cart-button"
                         type="submit"
                         value="Add To Cart"
                       ></input>
