@@ -111,7 +111,7 @@
   float: right;
 }
 
-.card-quantity-div{
+.card-quantity-div {
   margin-top: 30px;
 }
 
@@ -145,10 +145,12 @@
   text-decoration: none;
   text-shadow: 0px 1px 0px #1570cd;
 }
+
 .add-to-cart-button:hover {
   background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
   background-color: #1e62d0;
 }
+
 .add-to-cart-button:active {
   position: relative;
   top: 1px;
@@ -173,14 +175,103 @@
   width: 400px;
 }
 
-.cartCard {
-  display: flex;
-  flex-wrap: wrap;
+.cart {
+  /* border-style: solid;
+  border-width: 10px; */
 }
 
-.cartImage {
-  max-width: 100px;
-  max-height: 100px;
+.visible {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 1300px;
+  /* border-style: solid;
+  border-width: 2px; */
+  display: inline-block;
+}
+
+.deleted {
+  display: none;
+}
+
+.cart-image {
+  float: left;
+  max-width: 200px;
+  max-height: 200px;
+  margin-left: 20px;
+}
+
+.cart-div-title {
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+.cart-title {
+  float: left;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+.cart-quantity {
+  position: absolute;
+  margin-left: 900px;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-top: 50px;
+}
+
+.cart-price {
+  margin-right: 25px;
+  float: right;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-left: 15px;
+  margin-top: 50px;
+}
+
+.cart-delete-div {
+  position: absolute;
+  margin-left: 1050px;
+}
+
+.cart-delete {
+  margin-top: 50px;
+  box-shadow: inset 0px 1px 0px 0px #97c4fe;
+  background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+  background-color: #3d94f6;
+  border-radius: 6px;
+  border: 1px solid #337fed;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+}
+.cart-delete:hover {
+  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color: #1e62d0;
+}
+.cart-delete:active {
+  position: relative;
+  top: 1px;
+}
+
+.cart-total {
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  float: right;
+  position: absolute;
+  margin-left: 1175px;
+  margin-top: 20px;
+}
+
+.paypal-buttons {
+  float: right;
+  margin-right: 60px;
+  max-height: 200px;
+  margin-top: 25px;
 }
 
 .sellingCard {
@@ -191,10 +282,6 @@
 .sellingImage {
   max-width: 100px;
   max-height: 100px;
-}
-
-.deleted {
-  display: none;
 }
 
 .filter {
@@ -218,7 +305,6 @@
 .input {
   display: block;
 }
-
 
 .clear-filter-button {
   float: right;

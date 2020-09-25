@@ -4,7 +4,7 @@ class Cart extends React.Component {
   state = {
     product: [],
     price: 0,
-    deleted: false
+    deleted: false,
   }
 
   componentDidMount() {
@@ -20,7 +20,7 @@ class Cart extends React.Component {
     })
     this.getTotal()
   }
-  
+
   getTotal = () => {
     this.props.getTotal(this.state.price)
   }
@@ -44,13 +44,17 @@ class Cart extends React.Component {
     let product = this.state.product
     return (
       <div className={this.state.deleted ? "deleted" : "visible"}>
-        <img className="cartImage" src={product.image} alt={product.title} />
-        <h3>{product.title}</h3>
-        <h3>Quantity: {this.props.cart.quantity}</h3>
-        <h3 className="cartPrice">
+        <img className="cart-image" src={product.image} alt={product.title} />
+        <h5 className="cart-title">{product.title}</h5>
+        <h5 className="cart-price">
           ${product.price * this.props.cart.quantity}
-        </h3>
-        <button onClick={this.clickHandler}>Delete</button>
+        </h5>
+        <div className="cart-delete-div">
+          <button className="cart-delete" onClick={this.clickHandler}>
+            Delete
+          </button>
+        </div>
+        <h5 className="cart-quantity">Quantity: {this.props.cart.quantity}</h5>
       </div>
     )
   }

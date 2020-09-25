@@ -26,7 +26,12 @@ class CartContainer extends React.Component {
 
   mapCart = () => {
     return this.state.cart.map((cart) => (
-      <Cart key={cart.id} cart={cart} getTotal={this.getTotal} updateTotal={this.updateTotal} />
+      <Cart
+        key={cart.id}
+        cart={cart}
+        getTotal={this.getTotal}
+        updateTotal={this.updateTotal}
+      />
     ))
   }
 
@@ -37,7 +42,7 @@ class CartContainer extends React.Component {
 
   updateTotal = (price) => {
     let itemPrice = parseInt(price)
-    this.setState({total: this.state.total - itemPrice})
+    this.setState({ total: this.state.total - itemPrice })
   }
 
   fetchCartsSold = () => {
@@ -54,42 +59,45 @@ class CartContainer extends React.Component {
     )
     this.fetchProductQuantity()
   }
-  
+
   fetchProductQuantity = () => {
     this.state.cart.forEach((item) =>
       fetch(`http://localhost:3000/products/${item.product_id}`, {
-        method: "PATCH", 
-        body: JSON.stringify({quantity: item.quantityAvailable - item.quantity}),
+        method: "PATCH",
+        body: JSON.stringify({
+          quantity: item.quantityAvailable - item.quantity,
+        }),
         headers: {
-        "Content-type": "application/json"
-        }
-      })    
+          "Content-type": "application/json",
+        },
+      })
     )
-    this.setState({cart: [], total: 0})
+    this.setState({ cart: [], total: 0 })
     this.mapCart()
   }
 
   render() {
     return (
-      <div>
+      <div className="cart">
+        <h1 className="cart-div-title">My Cart</h1>
         {this.mapCart()}
-        <h1>Total: ${this.state.total}</h1>
-        <PayPalButton
-          amount={this.state.total}
-          onSuccess={(details, data) => {
-            alert("Transaction completed by " + details.payer.name.given_name)
-            
-            this.fetchCartsSold()
-            
-            // OPTIONAL: Call your server to save the transaction
-            // return fetch("/paypal-transaction-complete", {
-            //   method: "post",
-            //   body: JSON.stringify({
-            //     orderID: data.orderID
-            //   })
-            // });
-          }}
-        />
+        <div className="payment">
+          <div className="paypal-buttons">
+            <PayPalButton
+              amount={this.state.total}
+              onSuccess={(details, data) => {
+                alert(
+                  "Transaction completed by " + details.payer.name.given_name
+                )
+                this.fetchCartsSold()
+              }}
+            />
+          </div>
+          <div className="cart-total">
+            <h5>Total: ${this.state.total}</h5>
+          </div>
+
+        </div>
       </div>
     )
   }
