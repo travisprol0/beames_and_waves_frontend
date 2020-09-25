@@ -15,6 +15,7 @@ class ProductShow extends React.Component {
   submitHandler = (e) => {
     e.preventDefault()
     this.createCart()
+    alert(this.state.product.title + " added to cart")
   }
 
   createCart = () => {
