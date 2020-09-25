@@ -5,11 +5,11 @@ const ItemsBought = (props) => {
 const product = props.products.find((product) => product.id === props.cart.product_id)
     return (
       <div className="items-bought">
-        <img className="boutImage" src={product.image} alt={product.title} />
-        <h3>{product.title}</h3>
-        <h3>Quantity: {props.cart.quantity}</h3>
-        <h3 className="sellingPrice">${product.price}</h3>
-        <h3>{props.cart.date}</h3>
+        <img className="bought-image" src={product.image} alt={product.title} />
+        <h5 className="bought-title">{product.title}</h5>
+        <h5 className="bought-price">${product.price}</h5>
+        <h5 className="bought-date">Date: {props.cart.date.slice(4, 15)}</h5>
+        <h5 className="bought-quantity">Quantity: {props.cart.quantity}</h5>
       </div>
     )
   

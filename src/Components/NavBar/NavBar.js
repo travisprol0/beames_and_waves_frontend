@@ -57,21 +57,7 @@ class NavBar extends React.Component {
           >
             All Equipment
           </Nav.Link>
-          <Nav.Link
-            href={"/equipment/lighting"}
-            onMouseEnter={this.onMouseEnter}
-            onMouseLeave={this.onMouseLeave}
-          >
-            Lighting Equipment
-          </Nav.Link>
-          <Nav.Link
-            href={"/equipment/sound"}
-            onMouseEnter={this.onMouseEnter}
-            onMouseLeave={this.onMouseLeave}
-            onClick={this.navBarFilter}
-          >
-            Sound Equipment
-          </Nav.Link>
+          
 
           <Nav.Link
             href={"/list-item"}

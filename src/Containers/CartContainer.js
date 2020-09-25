@@ -46,11 +46,13 @@ class CartContainer extends React.Component {
   }
 
   fetchCartsSold = () => {
+    let date = Date().toLocaleString()
     this.state.cart.forEach((item) =>
       fetch(`http://localhost:3000/carts/${item.id}`, {
         method: "PATCH",
         body: JSON.stringify({
-          sold: true,
+          sold: true, 
+          date: date
         }),
         headers: {
           "Content-type": "application/json",

@@ -274,7 +274,6 @@
   margin-top: 25px;
 }
 
-
 .filter {
   margin-top: 50px;
 }
@@ -325,13 +324,18 @@
   top: 1px;
 }
 
+.account-headers {
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
 .selling-image {
   float: left;
   max-width: 200px;
   max-height: 200px;
   margin-left: 20px;
 }
-
 
 .selling-title {
   float: left;
@@ -384,4 +388,46 @@
 .selling-delete:active {
   position: relative;
   top: 1px;
+}
+
+.items-bought {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 1300px;
+  display: inline-block;
+}
+
+.bought-image {
+  float: left;
+  max-width: 200px;
+  max-height: 200px;
+  margin-left: 20px;
+}
+
+.bought-title {
+  float: left;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+.bought-quantity {
+  position: absolute;
+  margin-left: 1100px;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-top: 50px;
+}
+
+.bought-date {
+  position: absolute;
+  margin-left: 800px;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-top: 50px;
+}
+
+.bought-price {
+  margin-right: 25px;
+  float: right;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  margin-top: 50px;
 }
