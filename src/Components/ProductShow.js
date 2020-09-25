@@ -19,16 +19,18 @@ class ProductShow extends React.Component {
   }
 
   createCart = () => {
+    let date = Date().toLocaleString()
+    // console.log(date)
     let product_id = parseInt(this.state.product.id)
     let quantity = parseInt(this.state.quantityEntered)
     let quantityAvailable = parseInt(this.state.product.quantity)
-    console.log(quantityAvailable)
     let object = {
       user_id: 1,
       product_id: product_id,
       quantity: quantity,
       sold: false,
       quantityAvailable: quantityAvailable,
+      date: date
     }
 
     fetch("http://localhost:3000/carts", {

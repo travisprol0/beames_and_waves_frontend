@@ -9,6 +9,7 @@ const product = props.products.find((product) => product.id === props.cart.produ
         <h3>{product.title}</h3>
         <h3>Quantity: {props.cart.quantity}</h3>
         <h3 className="sellingPrice">${product.price}</h3>
+        <h3>{props.cart.date}</h3>
       </div>
     )
   

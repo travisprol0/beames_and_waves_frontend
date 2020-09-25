@@ -35,7 +35,6 @@ class ProductContainer extends React.Component {
   }
   mapProducts = () => {
     let filteredProducts = this.state.filteredProducts.filter((product) => product.quantity !== 0)
-    console.log(filteredProducts)
     return filteredProducts.map((product) => (
       <Product key={product.id} product={product} />
     ))
