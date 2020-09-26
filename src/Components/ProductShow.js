@@ -29,7 +29,7 @@ class ProductShow extends React.Component {
       quantity: quantity,
       sold: false,
       quantityAvailable: quantityAvailable,
-      date: date
+      date: date,
     }
 
     fetch("http://localhost:3000/carts", {
@@ -107,9 +107,6 @@ class ProductShow extends React.Component {
                   </li>
                   <li>
                     <strong>Model:</strong> {product.model}
-                  </li>
-                  <li>
-                    <strong>SKU:</strong> {product.sku}
                   </li>
                 </ul>
               </div>

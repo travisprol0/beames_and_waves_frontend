@@ -13,7 +13,7 @@ class Filter extends React.Component {
 render() {
 
   return (
-    <>
+    <div className="filter-wrapper">
       <div className="sort-by-category">
       <h5>Filter By Category</h5>
         <select
@@ -29,7 +29,7 @@ render() {
           <option value="sound">Sound Equipment</option>
         </select>
       </div>
-      <div className="sort-by-category">
+      <div className="sort-by-price-name">
       <h5>Sort By Price/Name</h5>
         <select
           onChange={this.priceNameSort}
@@ -112,6 +112,7 @@ render() {
             />
             $2000+
           </span>
+        <button className="clear-filter-button" onClick={this.props.clearFilters}>Clear</button>
         </form>
         <br></br>
         {/* <h5>Filter By Brand</h5>
@@ -119,8 +120,7 @@ render() {
             {whatever}
         </form> */}
       </div>
-      <button className="clear-filter-button" onClick={this.props.clearFilters}>Clear Filters</button>
-    </>
+    </div>
   )
 }
 }

@@ -1,6 +1,7 @@
 import React from "react"
 import Product from "../Components/Product"
 import Filter from "../Components/Filter"
+import FormContainer from "../Containers/FormContainer"
 const BASE_URL = "http://localhost:3000/"
 // const ProductContainer = (props) => {
 //   let products = props.products.map((product) => (
@@ -24,7 +25,7 @@ class ProductContainer extends React.Component {
   // let products = props.products.map((product) => (
   //   <Product key={product.id} product={product} />
   // ))
-  state = { products: [], filteredProducts: [] }
+  state = { products: [], filteredProducts: [], display: false }
 
   componentDidMount() {
     fetch(BASE_URL + "products")
@@ -34,7 +35,9 @@ class ProductContainer extends React.Component {
       )
   }
   mapProducts = () => {
-    let filteredProducts = this.state.filteredProducts.filter((product) => product.quantity !== 0)
+    let filteredProducts = this.state.filteredProducts.filter(
+      (product) => product.quantity !== 0
+    )
     return filteredProducts.map((product) => (
       <Product key={product.id} product={product} />
     ))
@@ -91,22 +94,42 @@ class ProductContainer extends React.Component {
   }
 
   clearFilters = () => {
-    this.setState({filteredProducts: this.state.products})
+    this.setState({ filteredProducts: this.state.products })
+  }
+
+  formButtonHandler = () => {
+    this.setState({ display: !this.state.display })
   }
 
   render() {
     return (
-      <div className="product-wrapper">
-        <div className="product-container">{this.mapProducts()}</div>
-        <div className="filter-container">
-          <Filter
-            clickHandler={this.priceFilter}
-            categorySort={this.categorySort}
-            priceNameSort={this.priceNameSort}
-            clearFilters={this.clearFilters} 
-          />
+      <>
+        <div className="form-div">{this.state.display ? <FormContainer /> : null}</div>
+        <div className="sell-item-button-div">
+          
+              <button
+                className="sell-item-button"
+                onClick={this.formButtonHandler}
+              >
+                Sell Equipment
+              </button>
         </div>
-      </div>
+              
+        <Filter
+              clickHandler={this.priceFilter}
+              categorySort={this.categorySort}
+              priceNameSort={this.priceNameSort}
+              clearFilters={this.clearFilters}
+            />
+        <div className="product-wrapper">
+          <div className="product-container">{this.mapProducts()}</div>
+          <div className="filter-container">
+            
+            
+            </div>
+          </div>
+        
+      </>
     )
   }
 }

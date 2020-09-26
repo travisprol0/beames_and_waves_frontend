@@ -1,3 +1,6 @@
+.app {
+  height: 0px;
+}
 .navbar-custom {
   background-color: lightgreen;
 }
@@ -7,10 +10,10 @@
 }
 
 .product-container {
-  width: 1200px;
+width: 1200px;
   float: right;
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .product-card {
@@ -276,7 +279,11 @@
 
 .filter {
   margin-top: 50px;
+  width: 132px;
+  margin-right: 0px;
+  float: left;
 }
+
 .filter-span {
   float: left;
   clear: left;
@@ -292,13 +299,9 @@
   cursor: pointer;
 }
 
-.input {
-  display: block;
-}
-
 .clear-filter-button {
-  float: right;
-  margin-right: 25px;
+  margin-left: 25px;
+  margin-top: 10px;
   margin-top: 1px;
   box-shadow: inset 0px 1px 0px 0px #97c4fe;
   background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
@@ -430,4 +433,189 @@
   float: right;
   font-family: "museo-sans", "Helvetica Neue", Helvetica;
   margin-top: 50px;
+}
+
+.filter-wrapper {
+  float: left;
+}
+
+.form-div {
+  /* border-style: solid;
+  border-width: 1px; */
+  width: 1150px;
+  position: relative;
+  float: right;
+  margin-right: 50px;
+  
+}
+.form {
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  height: 250px;
+  margin-left: 100px;
+  margin-top:25px;
+}
+
+.form-bottom {
+  position: absolute;
+  margin-top: 20px;
+}
+
+.input-title {
+  float: left;
+}
+
+.input-title-input {
+  margin-left: 5px;
+  width: 350px;
+}
+
+.input-brand {
+  float: left;
+  margin-left: 10px;
+}
+
+.input-brand-input {
+  margin-left: 10px;
+  width: 200px;
+}
+
+.input-model {
+  float: left;
+  margin-left: 10px;
+}
+
+.input-model-input {
+  margin-left: 10px;
+}
+
+.input-category {
+  float: left;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.input-category-input {
+  margin-left: 10px;
+}
+
+.input-image {
+  float: left;
+  margin-left: 0px;
+  margin-top: 30px;
+}
+
+.input-image-input {
+  margin-left: 10px;
+}
+.input-price {
+  float: left;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.input-price-input {
+  margin-left: 10px;
+}
+
+.input-quantity {
+  float: left;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.input-quantity-input {
+  margin-left: 10px;
+}
+
+.description-div {
+  position: absolute;
+  margin-top: 100px;
+}
+
+.description-header {
+  position: absolute;
+  margin-top: 100px;
+}
+
+.input-description {
+  float: left;
+  margin-top: 30px;
+}
+.input-description-input {
+  width: 900px;
+  height: 100px;
+}
+
+.list-title {
+  margin-left: 25px;
+}
+
+.sort-by-category {
+  margin-top: 25px;
+}
+
+.sell-item-button-div {
+  margin-right: 0px;
+  width: 158px
+}
+
+.sell-item-button {
+  margin-top: 50px;
+  box-shadow: inset 0px 1px 0px 0px #97c4fe;
+  background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+  background-color: #3d94f6;
+  border-radius: 6px;
+  border: 1px solid #337fed;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+}
+.sell-item-button:hover {
+  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color: #1e62d0;
+}
+.sell-item-button:active {
+  position: relative;
+  top: 1px;
+}
+
+.input-submit {
+  float: left;
+  margin-top: 225px;
+  margin-right: 500px;
+}
+.list-item-button {
+  box-shadow: inset 0px 1px 0px 0px #97c4fe;
+  background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+  background-color: #3d94f6;
+  border-radius: 6px;
+  border: 1px solid #337fed;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "museo-sans", "Helvetica Neue", Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+}
+.list-item-button:hover {
+  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color: #1e62d0;
+}
+.list-item-button:active {
+  position: relative;
+  top: 1px;
+}
+
+.sell-item-button-div {
+  width: 160px;
+  margin-right: 0px;
 }
