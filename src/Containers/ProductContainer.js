@@ -122,6 +122,7 @@ class ProductContainer extends React.Component {
               clearFilters={this.clearFilters}
             />
         <div className="product-wrapper">
+        <h2 className="product-title">Products</h2>
           <div className="product-container">{this.mapProducts()}</div>
           <div className="filter-container">
             
