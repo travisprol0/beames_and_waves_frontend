@@ -54,8 +54,8 @@ render() {
               className="checkbox"
               type="checkbox"
               value="Less Than $50"
-              onClick={this.props.clickHandler}
-            />{" "}
+              onClick={() => this.props.clickHandler("Less Than $50")}
+            />
             Less Than $50
           </span>
           <span className="filter-span">
@@ -63,7 +63,7 @@ render() {
               className="checkbox"
               type="checkbox"
               value="$50 to $100"
-              onClick={this.props.clickHandler}
+              onClick={() => this.props.clickHandler("$50 to $100")}
             />
             $50 to $100
           </span>
@@ -72,7 +72,7 @@ render() {
               className="checkbox"
               type="checkbox"
               value="$100 to $250"
-              onClick={this.props.clickHandler}
+              onClick={() => this.props.clickHandler("$100 to $250")}
             />
             $100 to $250
           </span>
@@ -81,7 +81,7 @@ render() {
               className="checkbox"
               type="checkbox"
               value="$250 to $500"
-              onClick={this.props.clickHandler}
+              onClick={() => this.props.clickHandler("$250 to $500")}
             />
             $250 to $500
           </span>
@@ -90,7 +90,7 @@ render() {
               className="checkbox"
               type="checkbox"
               value="$500 to $1000"
-              onClick={this.props.clickHandler}
+              onClick={() => this.props.clickHandler("$500 to $1000")}
             />
             $500 to $1000
           </span>
@@ -99,7 +99,7 @@ render() {
               className="checkbox"
               type="checkbox"
               value="$1000 to $2000"
-              onClick={this.props.clickHandler}
+              onClick={() => this.props.clickHandler("$1000 to $2000")}
             />
             $1000 to $2000
           </span>
@@ -108,7 +108,7 @@ render() {
               className="checkbox"
               type="checkbox"
               value="$2000+"
-              onClick={this.props.clickHandler}
+              onClick={() => this.props.clickHandler("$2000+")}
             />
             $2000+
           </span>

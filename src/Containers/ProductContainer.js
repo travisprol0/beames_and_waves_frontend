@@ -25,7 +25,12 @@ class ProductContainer extends React.Component {
   // let products = props.products.map((product) => (
   //   <Product key={product.id} product={product} />
   // ))
-  state = { products: [], filteredProducts: [], display: false }
+  state = {
+    products: [],
+    filteredProducts: [],
+    display: false,
+    checked: [],
+  }
 
   componentDidMount() {
     fetch(BASE_URL + "products")
@@ -81,16 +86,51 @@ class ProductContainer extends React.Component {
     }
   }
 
-  priceFilter = (e) => {
-    let newArray = []
-    console.log(e.target.value)
-    if (e.target.value === "Less Than $50") {
-      let filteredProducts = this.state.products.filter(
-        (product) => product.price < 50
-      )
-      filteredProducts.forEach((product) => newArray.push(product))
+  priceFilterClickHandler = (category) => {
+    const currentIndex = this.state.checked.indexOf(category)
+    const newChecked = [...this.state.checked]
+
+    if (currentIndex === -1) {
+      newChecked.push(category)
+    } else {
+      newChecked.splice(currentIndex, 1)
     }
-    this.setState({ filteredProducts: newArray })
+    this.setState({ checked: newChecked })
+    this.handleFilters()
+  }
+
+  handleFilters = () => {
+    let products = this.state.products
+    let filteredProducts = []
+    let filters = [...this.state.checked]
+    
+    filters.forEach((filter) => {
+      if (filter === "Less Than $50"){
+        filteredProducts.push(products.filter((product) => product.price <= 50))
+      } else if (filter === "$50 to $100"){
+        filteredProducts.push(products.filter((product) => product.price >= 50 && product.price <=100))
+      } else if (filter === "$100 to $250"){
+        filteredProducts.push(products.filter((product) => product.price >= 100 && product.price <=250))
+      } else if (filter === "$250 to $500"){
+        filteredProducts.push(products.filter((product) => product.price >= 250 && product.price <=500))
+      } else if (filter === "$500 to $1000"){
+        filteredProducts.push(products.filter((product) => product.price >= 500 && product.price <=1000))
+      } else if (filter === "$1000 to $2000"){
+        filteredProducts.push(products.filter((product) => product.price >= 1000 && product.price <=2000))
+      }
+      else if (filter === "$2000+"){
+        filteredProducts.push(products.filter((product) => product.price >= 2000))
+      }
+      // console.log(filteredProducts)
+    })
+    filteredProducts = filteredProducts.flat()
+    if (filteredProducts.length <= 0) {
+      filteredProducts = products
+    }
+    
+    this.setState({filteredProducts: filteredProducts})
+
+    // console.log(newFilters)
   }
 
   clearFilters = () => {
@@ -104,32 +144,26 @@ class ProductContainer extends React.Component {
   render() {
     return (
       <>
-        <div className="form-div">{this.state.display ? <FormContainer /> : null}</div>
-        <div className="sell-item-button-div">
-          
-              <button
-                className="sell-item-button"
-                onClick={this.formButtonHandler}
-              >
-                Sell Equipment
-              </button>
+        <div className="form-div">
+          {this.state.display ? <FormContainer /> : null}
         </div>
-              
+        <div className="sell-item-button-div">
+          <button className="sell-item-button" onClick={this.formButtonHandler}>
+            Sell Equipment
+          </button>
+        </div>
+
         <Filter
-              clickHandler={this.priceFilter}
-              categorySort={this.categorySort}
-              priceNameSort={this.priceNameSort}
-              clearFilters={this.clearFilters}
-            />
+          clickHandler={this.priceFilterClickHandler}
+          categorySort={this.categorySort}
+          priceNameSort={this.priceNameSort}
+          clearFilters={this.clearFilters}
+        />
         <div className="product-wrapper">
-        <h2 className="product-title">Products</h2>
+          <h2 className="product-title">Products</h2>
           <div className="product-container">{this.mapProducts()}</div>
-          <div className="filter-container">
-            
-            
-            </div>
-          </div>
-        
+          <div className="filter-container"></div>
+        </div>
       </>
     )
   }
