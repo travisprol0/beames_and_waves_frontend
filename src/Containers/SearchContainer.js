@@ -1,12 +1,17 @@
 import React from "react"
 import Product from "../Components/Product"
 
+import Filter from "../Components/Filter"
+
 const SearchContainer = (props) => {
   let products = props.products.map((product) => (
     <Product key={product.id} product={product} />
   ))
   if (products.length === 0) {
-    return <h1>No products found!</h1>
+    return(
+      
+       <h1>No products found!</h1>
+       )
   } else {
     return products
   }
