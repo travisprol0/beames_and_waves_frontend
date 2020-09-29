@@ -1,5 +1,5 @@
 import React from "react"
-// import BrandFilter from '../Components/BrandFilter'
+import BrandFilter from '../Components/BrandFilter'
 
 class Filter extends React.Component {
 
@@ -114,11 +114,13 @@ render() {
           </span>
         <button className="clear-filter-button" onClick={this.props.clearFilters}>Clear</button>
         </form>
-        <br></br>
-        {/* <h5>Filter By Brand</h5>
+        <div className="filter">
+
+        <h5>Filter By Brand</h5>
         <form className="brand-filter-form">
-            {whatever}
-        </form> */}
+          <BrandFilter products={this.props.products} clickHandler={this.props.clickHandler} />
+        </form>
+        </div>
       </div>
     </div>
   )

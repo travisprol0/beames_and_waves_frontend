@@ -108,8 +108,8 @@ width: 1200px;
 }
 
 .image-show {
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .right-div {
@@ -176,7 +176,7 @@ width: 1200px;
 
 .specs {
   float: right;
-  margin-right: 20px;
+  margin-right: 70px;
 }
 
 .description {
@@ -284,10 +284,11 @@ width: 1200px;
 }
 
 .filter {
-  margin-top: 50px;
+  margin-top: 25px;
   width: 132px;
   margin-right: 0px;
   float: left;
+  margin-left: 10px;
 }
 
 .filter-span {
@@ -559,11 +560,18 @@ width: 1200px;
 }
 
 .sort-by-category {
+  margin-left: 10px;
   margin-top: 25px;
 }
 
+.sort-by-price-name {
+  margin-left: 10px;
+  margin-top: 25px;
+} 
+
 .sell-item-button-div {
   margin-right: 0px;
+  margin-left: 10px;
   width: 158px
 }
 

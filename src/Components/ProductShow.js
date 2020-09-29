@@ -52,9 +52,9 @@ class ProductShow extends React.Component {
       <>
         <div className="productShow">
           <div className="left-div">
-            <div className="imageShowDiv">
+            <div className="image-show-div">
               <img
-                className="imageShow"
+                className="image-show"
                 src={product.image}
                 alt={product.title}
               />

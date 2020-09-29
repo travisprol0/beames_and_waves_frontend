@@ -89,7 +89,7 @@ class ProductContainer extends React.Component {
   priceFilterClickHandler = (category) => {
     const currentIndex = this.state.checked.indexOf(category)
     const newChecked = [...this.state.checked]
-
+    console.log(category)
     if (currentIndex === -1) {
       newChecked.push(category)
     } else {
@@ -106,22 +106,22 @@ class ProductContainer extends React.Component {
     
     filters.forEach((filter) => {
       if (filter === "Less Than $50"){
-        filteredProducts.push(products.filter((product) => product.price <= 50))
+          filteredProducts.push(products.filter((product) => product.price <= 50))
       } else if (filter === "$50 to $100"){
-        filteredProducts.push(products.filter((product) => product.price >= 50 && product.price <=100))
+          filteredProducts.push(products.filter((product) => product.price >= 50 && product.price <=100))
       } else if (filter === "$100 to $250"){
-        filteredProducts.push(products.filter((product) => product.price >= 100 && product.price <=250))
+          filteredProducts.push(products.filter((product) => product.price >= 100 && product.price <=250))
       } else if (filter === "$250 to $500"){
-        filteredProducts.push(products.filter((product) => product.price >= 250 && product.price <=500))
+          filteredProducts.push(products.filter((product) => product.price >= 250 && product.price <=500))
       } else if (filter === "$500 to $1000"){
-        filteredProducts.push(products.filter((product) => product.price >= 500 && product.price <=1000))
+          filteredProducts.push(products.filter((product) => product.price >= 500 && product.price <=1000))
       } else if (filter === "$1000 to $2000"){
-        filteredProducts.push(products.filter((product) => product.price >= 1000 && product.price <=2000))
+          filteredProducts.push(products.filter((product) => product.price >= 1000 && product.price <=2000))
+      } else if (filter === "$2000+"){
+          filteredProducts.push(products.filter((product) => product.price >= 2000))
+      } else {
+        filteredProducts.push(products.filter((product) => product.brand === filter))
       }
-      else if (filter === "$2000+"){
-        filteredProducts.push(products.filter((product) => product.price >= 2000))
-      }
-      // console.log(filteredProducts)
     })
     filteredProducts = filteredProducts.flat()
     if (filteredProducts.length <= 0) {
@@ -158,6 +158,7 @@ class ProductContainer extends React.Component {
           categorySort={this.categorySort}
           priceNameSort={this.priceNameSort}
           clearFilters={this.clearFilters}
+          products={this.props.products}
         />
         <div className="product-wrapper">
           <h2 className="product-title">Products</h2>
